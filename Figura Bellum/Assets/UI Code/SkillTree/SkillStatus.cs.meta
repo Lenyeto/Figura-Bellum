@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 0c4a195269d1a054aad810f841b5a47c
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - mRawImage: {instanceID: 0}
+  - mLocked: {fileID: 2800000, guid: 61f3b3b2a1ec0d640989d61873a7d7aa, type: 3}
+  - mUnlocked: {fileID: 2800000, guid: 80dfd35af88cb1547a2b4d6e0fe76c55, type: 3}
+  - mObtained: {fileID: 2800000, guid: 372158a822c8e524fba33e57a753f328, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
