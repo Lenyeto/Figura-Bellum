@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 
 public class PlayerScript : MonoBehaviour
 {
@@ -7,7 +8,7 @@ public class PlayerScript : MonoBehaviour
     public GameObject mCrosshair;
 
     public GameObject mPlayerModel;
-
+    
     //temp till we get stats in
     private float mSpeed = 2.0f;
 
@@ -22,7 +23,7 @@ public class PlayerScript : MonoBehaviour
         mMainCamera = Camera.main;
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
-
+        
         //MOVE THIS LATER
     }
 
@@ -52,6 +53,9 @@ public class PlayerScript : MonoBehaviour
             if (cross.y <= -mMaxDelta){ cross = new Vector3(cross.x, -mMaxDelta, cross.z);}
 
             mCrosshair.transform.localPosition = cross;
+
+            if (Input.GetKeyDown(KeyCode.Space))
+                ShadowCloneJitsu();
         }
     }
 
@@ -68,5 +72,18 @@ public class PlayerScript : MonoBehaviour
 
         mMainCamera.transform.position = Vector3.Lerp(mMainCamera.transform.position, target, Time.deltaTime);
         mMainCamera.transform.position = new Vector3(mMainCamera.transform.position.x, mMainCamera.transform.position.y, -400);
+    }
+
+    private void ShadowCloneJitsu()
+    {
+        GameObject clone;
+        clone = Instantiate(gameObject, transform.position + new Vector3(0, 3), new Quaternion(0, 0, 0, 0), null);
+        Destroy(clone, 5);
+        clone = Instantiate(gameObject, transform.position + new Vector3(0, -3), new Quaternion(0, 0, 0, 0), null);
+        Destroy(clone, 5);
+        clone = Instantiate(gameObject, transform.position + new Vector3(3, 0), new Quaternion(0, 0, 0, 0), null);
+        Destroy(clone, 5);
+        clone = Instantiate(gameObject, transform.position + new Vector3(-3, 0), new Quaternion(0, 0, 0, 0), null);
+        Destroy(clone, 5);
     }
 }
