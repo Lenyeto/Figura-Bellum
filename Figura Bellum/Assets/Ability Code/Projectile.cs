@@ -20,17 +20,20 @@ public class Projectile : AbilityCore {
     void Start () {
 		
 	}
-	
+
+	override public void Cast()
+    {
+
+        GameObject projectile = Instantiate(projectiles[currentProjectile], spawnPosition.position, Quaternion.identity) as GameObject;
+
+        projectile.transform.LookAt(spawnDirection.position);
+        projectile.GetComponent<Rigidbody>().AddForce(projectile.transform.forward * speed);
+
+    }
 	// Update is called once per frame
 	void Update () {
 
-        if (Input.GetKeyDown(KeyCode.Mouse0))
-        {
-            GameObject projectile = Instantiate(projectiles[currentProjectile], spawnPosition.position, Quaternion.identity) as GameObject;
-
-            projectile.transform.LookAt(spawnDirection.position);
-            projectile.GetComponent<Rigidbody>().AddForce(projectile.transform.forward * speed);
-        }
+        
 
     }
 }
