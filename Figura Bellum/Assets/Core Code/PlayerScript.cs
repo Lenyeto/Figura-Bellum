@@ -12,7 +12,9 @@ public class PlayerScript : MonoBehaviour
     private float mSpeed = 2.0f;
 
     //for crosshair
-    private float mMaxDelta = 2.0f;
+    [SerializeField]
+    [Range(2,6)]
+    public float mMaxDelta = 2.0f;
 
     // Use this for initialization
     private void Start()
@@ -41,25 +43,15 @@ public class PlayerScript : MonoBehaviour
             mCrosshair.transform.position += new Vector3(Input.GetAxis("MouseHorizontal") * Time.deltaTime, Input.GetAxis("MouseVertical") * Time.deltaTime, 0);
 
             Vector3 cross = mCrosshair.transform.localPosition;
+
             //keeping crosshair locked in my dude
-            if (mCrosshair.transform.localPosition.x > mMaxDelta)
-            {
-                mCrosshair.transform.localPosition = new Vector3(mMaxDelta, cross.y, cross.z);
-            }
+            if (cross.x >= mMaxDelta) { cross = new Vector3(mMaxDelta, cross.y, cross.z); }
+            if (cross.x <= -mMaxDelta) { cross = new Vector3(-mMaxDelta, cross.y, cross.z);}
 
-            if (mCrosshair.transform.localPosition.x < -mMaxDelta)
-            {
-                mCrosshair.transform.localPosition = new Vector3(-mMaxDelta, cross.y, cross.z);
-            }
+            if (cross.y >= mMaxDelta) { cross = new Vector3(cross.x, mMaxDelta, cross.z);}
+            if (cross.y <= -mMaxDelta){ cross = new Vector3(cross.x, -mMaxDelta, cross.z);}
 
-            if (mCrosshair.transform.localPosition.y > mMaxDelta)
-            {
-                mCrosshair.transform.localPosition = new Vector3(cross.x, mMaxDelta, cross.z);
-            }
-            if (mCrosshair.transform.localPosition.y < -mMaxDelta)
-            {
-                mCrosshair.transform.localPosition = new Vector3(cross.x, -mMaxDelta, cross.z);
-            }
+            mCrosshair.transform.localPosition = cross;
         }
     }
 
