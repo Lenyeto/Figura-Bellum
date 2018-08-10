@@ -5,7 +5,7 @@ using System.Text;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "new_skill_ability", menuName = "FiguraBellum/Ability/Skill", order = 1)]
-public class ScriptableSkillAbility
+public class ScriptableSkillAbility : ScriptableAbilityBase
 {
     //The flat amount of health you will gain.
     public double mHealthFlatIncrease;

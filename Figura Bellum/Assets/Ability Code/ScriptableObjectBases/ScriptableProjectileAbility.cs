@@ -5,7 +5,7 @@ using System.Text;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "new_projectile_ability", menuName = "FiguraBellum/Ability/Projectile", order = 1)]
-public class ScriptableProjectileAbility
+public class ScriptableProjectileAbility : ScriptableAbilityBase
 {
     //The damage that the ability does.
     public double mDamage;

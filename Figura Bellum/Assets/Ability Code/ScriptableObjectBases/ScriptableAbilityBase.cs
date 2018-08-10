@@ -17,7 +17,7 @@ public class ScriptableAbilityBase : ScriptableObject
     public float mCooldown;
 
     //The script that this ability will trigger when you use the ability.
-    public AbilityCore mAbilityScript;
+    public string mAbilityScript;
 
     //The abilit(s) that need to be unlocked before this can be unlocked.
     public ScriptableAbilityBase mPrereq;
