@@ -4,16 +4,16 @@ using UnityEngine;
 
 public class Projectile : AbilityCore {
 
-    public GameObject[] projectiles;
-    public Transform spawnPosition;
-    public Transform spawnDirection;
+    
+    public Transform mSpawnPosition;
+    public Transform mSpawnDirection;
 
     [HideInInspector]
     public int currentProjectile = 0;
 
     public float speed = 1000;
 
-    public GameObject projectile;
+    public GameObject mProjectile;
 
 
     // Use this for initialization
@@ -24,9 +24,9 @@ public class Projectile : AbilityCore {
 	override public void Cast()
     {
 
-        GameObject projectile = Instantiate(projectiles[currentProjectile], spawnPosition.position, Quaternion.identity) as GameObject;
+        GameObject projectile = Instantiate(mProjectile, mSpawnPosition.position, Quaternion.identity) as GameObject;
 
-        projectile.transform.LookAt(spawnDirection.position);
+        projectile.transform.LookAt(mSpawnDirection.position);
         projectile.GetComponent<Rigidbody>().AddForce(projectile.transform.forward * speed);
 
     }

@@ -8,14 +8,18 @@ public class PlayerScript : MonoBehaviour
     public GameObject mCrosshair;
 
     public GameObject mPlayerModel;
-    
-    //temp till we get stats in
-    private float mSpeed = 2.0f;
 
     //for crosshair
     [SerializeField]
     [Range(2,6)]
     public float mMaxDelta = 2.0f;
+
+    private GameObject[] mAbilities;
+
+
+    //temp till we get stats and other systems in
+    private float mSpeed = 2.0f;
+    public GameObject mFireBallAbility;
 
     // Use this for initialization
     private void Start()
@@ -23,46 +27,41 @@ public class PlayerScript : MonoBehaviour
         mMainCamera = Camera.main;
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+        mAbilities = new GameObject[5];
+        mFireBallAbility.GetComponent<Projectile>().mSpawnPosition = transform;
+        mFireBallAbility.GetComponent<Projectile>().mSpawnDirection = mCrosshair.transform;
+        mAbilities[0] = mFireBallAbility;
+        for (int i = 1; i < 5; ++i)
+        {
+            mAbilities[i] = new GameObject();
+        }
         
-        //MOVE THIS LATER
+        
+    }
+
+    private void AbilityControl()
+    {
+
+        if (Input.GetKeyDown(KeyCode.Mouse0)) { mAbilities[0].GetComponent<AbilityCore>().GetComponent<AbilityCore>().Cast(); };
+        if (Input.GetKeyDown(KeyCode.Mouse1)) { mAbilities[1].GetComponent<AbilityCore>().Cast(); };
+        if (Input.GetKeyDown(KeyCode.Mouse2)) { mAbilities[2].GetComponent<AbilityCore>().Cast(); };
+        if (Input.GetKeyDown(KeyCode.Mouse3)) { mAbilities[3].GetComponent<AbilityCore>().Cast(); };
+        if (Input.GetKeyDown(KeyCode.Mouse4)) { mAbilities[4].GetComponent<AbilityCore>().Cast(); };
     }
 
     // Update is called once per frame
     private void Update()
     {
-        //Crosshair stuff
         if (GameStateManager.Instance.GetCurrentGameState() == GameState.RUNNING)
         {
-            if (Input.GetKey(KeyCode.W)) { transform.Translate(transform.up * mSpeed * Time.deltaTime); }
-
-            if (Input.GetKey(KeyCode.S)) { transform.Translate(-transform.up * mSpeed * Time.deltaTime); }
-
-            if (Input.GetKey(KeyCode.A)) { transform.Translate(-transform.right * mSpeed * Time.deltaTime); }
-
-            if (Input.GetKey(KeyCode.D)) { transform.Translate(transform.right * mSpeed * Time.deltaTime); }
-
-            mCrosshair.transform.position += new Vector3(Input.GetAxis("MouseHorizontal") * Time.deltaTime, Input.GetAxis("MouseVertical") * Time.deltaTime, 0);
-
-            Vector3 cross = mCrosshair.transform.localPosition;
-
-            //keeping crosshair locked in my dude
-            if (cross.x >= mMaxDelta) { cross = new Vector3(mMaxDelta, cross.y, cross.z); }
-            if (cross.x <= -mMaxDelta) { cross = new Vector3(-mMaxDelta, cross.y, cross.z);}
-
-            if (cross.y >= mMaxDelta) { cross = new Vector3(cross.x, mMaxDelta, cross.z);}
-            if (cross.y <= -mMaxDelta){ cross = new Vector3(cross.x, -mMaxDelta, cross.z);}
-
-            mCrosshair.transform.localPosition = cross;
-
+            CursorControl();
+            AbilityControl();
+            //vvv ---test stuff down here--- vvvv
             if (Input.GetKeyDown(KeyCode.Space))
                 ShadowCloneJitsu();
         }
     }
 
-    private void FixedUpdate()
-    {
-
-    }
 
     private void LateUpdate()
     {
@@ -72,6 +71,34 @@ public class PlayerScript : MonoBehaviour
 
         mMainCamera.transform.position = Vector3.Lerp(mMainCamera.transform.position, target, Time.deltaTime);
         mMainCamera.transform.position = new Vector3(mMainCamera.transform.position.x, mMainCamera.transform.position.y, -400);
+    }
+
+
+    private void CursorControl()
+    {
+        //Crosshair stuff
+
+        if (Input.GetKey(KeyCode.W)) { transform.Translate(transform.up * mSpeed * Time.deltaTime); }
+
+        if (Input.GetKey(KeyCode.S)) { transform.Translate(-transform.up * mSpeed * Time.deltaTime); }
+
+        if (Input.GetKey(KeyCode.A)) { transform.Translate(-transform.right * mSpeed * Time.deltaTime); }
+
+        if (Input.GetKey(KeyCode.D)) { transform.Translate(transform.right * mSpeed * Time.deltaTime); }
+
+        mCrosshair.transform.position += new Vector3(Input.GetAxis("MouseHorizontal") * Time.deltaTime, Input.GetAxis("MouseVertical") * Time.deltaTime, 0);
+
+        Vector3 cross = mCrosshair.transform.localPosition;
+
+        //keeping crosshair locked in my dude
+        if (cross.x >= mMaxDelta) { cross = new Vector3(mMaxDelta, cross.y, cross.z); }
+        if (cross.x <= -mMaxDelta) { cross = new Vector3(-mMaxDelta, cross.y, cross.z); }
+
+        if (cross.y >= mMaxDelta) { cross = new Vector3(cross.x, mMaxDelta, cross.z); }
+        if (cross.y <= -mMaxDelta) { cross = new Vector3(cross.x, -mMaxDelta, cross.z); }
+
+        mCrosshair.transform.localPosition = cross;
+
     }
 
     private void ShadowCloneJitsu()

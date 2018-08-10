@@ -595,6 +595,12 @@ Prefab:
       propertyPath: mPlayerModel
       value: 
       objectReference: {fileID: 160804621}
+    - target: {fileID: 114748933016128066, guid: c8aba92699427504fbfbac0d2384a188,
+        type: 2}
+      propertyPath: mFireBallAbility
+      value: 
+      objectReference: {fileID: 1119288443915714, guid: 5bb1644ba7499f548bcff63a2458037b,
+        type: 2}
     m_RemovedComponents:
     - {fileID: 212792016723741354, guid: c8aba92699427504fbfbac0d2384a188, type: 2}
   m_SourcePrefab: {fileID: 100100000, guid: c8aba92699427504fbfbac0d2384a188, type: 2}
