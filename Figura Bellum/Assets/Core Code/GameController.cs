@@ -24,6 +24,8 @@ public class GameController
 
     public void SetPlayerScript(PlayerScript ps)
     {
+        if (mPlayerScript != null)
+            return;
         mPlayerScript = ps;
     }
 

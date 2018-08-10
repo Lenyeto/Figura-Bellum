@@ -47,6 +47,7 @@ public class PlayerScript : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Mouse2)) { mAbilities[2].GetComponent<AbilityCore>().Cast(); };
         if (Input.GetKeyDown(KeyCode.Mouse3)) { mAbilities[3].GetComponent<AbilityCore>().Cast(); };
         if (Input.GetKeyDown(KeyCode.Mouse4)) { mAbilities[4].GetComponent<AbilityCore>().Cast(); };
+        //if (Input.GetKeyDown(KeyCode.Space)) { mAbilities[5].GetComponent<AbilityCore>().Cast(); }
     }
 
     // Update is called once per frame
