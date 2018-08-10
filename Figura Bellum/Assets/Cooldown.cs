@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class Cooldown : MonoBehaviour {
-
+    public Image mSpellIcon;
     public Image mImage;
     public int mAbilityID;
 
@@ -13,7 +13,7 @@ public class Cooldown : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-		
+        mSpellIcon.sprite = GameController.GetInstance().GetPlayerScript().mAbilities[mAbilityID].GetComponent<AbilityCore>().mIcon;
 	}
 	
 	// Update is called once per frame
@@ -24,6 +24,6 @@ public class Cooldown : MonoBehaviour {
             return;
         }
         //Debug.Log(GameController.GetInstance().GetPlayerScript());
-        mImage.fillAmount = GameController.GetInstance().GetPlayerScript().mAbilities[mAbilityID].GetComponent<Projectile>().cooldown / GameController.GetInstance().GetPlayerScript().mAbilities[mAbilityID].GetComponent<Projectile>().defaultCooldown;
+        mImage.fillAmount = GameController.GetInstance().GetPlayerScript().mAbilities[mAbilityID].GetComponent<AbilityCore>().cooldown / GameController.GetInstance().GetPlayerScript().mAbilities[mAbilityID].GetComponent<AbilityCore>().defaultCooldown;
     }
 }
