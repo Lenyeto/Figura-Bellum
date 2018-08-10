@@ -13,6 +13,8 @@ public class Projectile : AbilityCore {
 
     public float speed = 1000;
 
+    
+
     public GameObject mProjectile;
 
 
@@ -23,17 +25,27 @@ public class Projectile : AbilityCore {
 
 	override public void Cast()
     {
-
+        if (cooldown > 0)
+        {
+            Debug.Log(cooldown);
+            return;
+        }
         GameObject projectile = Instantiate(mProjectile, mSpawnPosition.position, Quaternion.identity) as GameObject;
 
         projectile.transform.LookAt(mSpawnDirection.position);
         projectile.GetComponent<Rigidbody>().AddForce(projectile.transform.forward * speed);
 
+        Destroy(projectile, 10);
+
+        cooldown = defaultCooldown;
     }
 	// Update is called once per frame
 	void Update () {
 
-        
+        if (cooldown > 0)
+        {
+            cooldown -= Time.deltaTime;
+        }
 
     }
 }

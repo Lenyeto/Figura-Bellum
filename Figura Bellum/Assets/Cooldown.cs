@@ -6,23 +6,24 @@ using UnityEngine.UI;
 public class Cooldown : MonoBehaviour {
 
     public Image mImage;
+    public int mAbilityID;
 
-    float defaultTimeLeft = 100;
-    float timeLeft = 100;
+    //float defaultTimeLeft = 100;
+    //float timeLeft = 100;
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start () {
 		
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		if (timeLeft > 0)
+        if (GameController.GetInstance().GetPlayerScript() == null)
         {
-            timeLeft -= Time.deltaTime;
-            Debug.Log(timeLeft);
+            Debug.Log(GameController.GetInstance().GetPlayerScript());
+            return;
         }
-
-        mImage.fillAmount = timeLeft / defaultTimeLeft;
+        //Debug.Log(GameController.GetInstance().GetPlayerScript());
+        mImage.fillAmount = GameController.GetInstance().GetPlayerScript().mAbilities[mAbilityID].GetComponent<Projectile>().cooldown / GameController.GetInstance().GetPlayerScript().mAbilities[mAbilityID].GetComponent<Projectile>().defaultCooldown;
     }
 }

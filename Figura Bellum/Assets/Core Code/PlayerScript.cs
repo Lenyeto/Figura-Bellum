@@ -14,7 +14,7 @@ public class PlayerScript : MonoBehaviour
     [Range(2,6)]
     public float mMaxDelta = 2.0f;
 
-    private GameObject[] mAbilities;
+    public GameObject[] mAbilities;
 
 
     //temp till we get stats and other systems in
@@ -24,25 +24,25 @@ public class PlayerScript : MonoBehaviour
     // Use this for initialization
     private void Start()
     {
+        GameController.GetInstance().SetPlayerScript(this);
         mMainCamera = Camera.main;
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
         mAbilities = new GameObject[5];
         mFireBallAbility.GetComponent<Projectile>().mSpawnPosition = transform;
         mFireBallAbility.GetComponent<Projectile>().mSpawnDirection = mCrosshair.transform;
-        mAbilities[0] = mFireBallAbility;
+        mAbilities[0] = Instantiate(mFireBallAbility);
         for (int i = 1; i < 5; ++i)
         {
             mAbilities[i] = new GameObject();
+            mAbilities[i].AddComponent<AbilityCore>();
         }
-        
-        
     }
 
     private void AbilityControl()
     {
 
-        if (Input.GetKeyDown(KeyCode.Mouse0)) { mAbilities[0].GetComponent<AbilityCore>().GetComponent<AbilityCore>().Cast(); };
+        if (Input.GetKeyDown(KeyCode.Mouse0)) { mAbilities[0].GetComponent<AbilityCore>().Cast(); };
         if (Input.GetKeyDown(KeyCode.Mouse1)) { mAbilities[1].GetComponent<AbilityCore>().Cast(); };
         if (Input.GetKeyDown(KeyCode.Mouse2)) { mAbilities[2].GetComponent<AbilityCore>().Cast(); };
         if (Input.GetKeyDown(KeyCode.Mouse3)) { mAbilities[3].GetComponent<AbilityCore>().Cast(); };
