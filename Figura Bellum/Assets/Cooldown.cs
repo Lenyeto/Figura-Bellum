@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class Cooldown : MonoBehaviour {
 
+    public Image mImage;
+
     float defaultTimeLeft = 100;
     float timeLeft = 100;
 
@@ -20,6 +22,7 @@ public class Cooldown : MonoBehaviour {
             timeLeft -= Time.deltaTime;
             Debug.Log(timeLeft);
         }
-        GetComponent<SpriteRenderer>().material.SetFloat("_Cutoff", timeLeft / defaultTimeLeft);
-	}
+
+        mImage.fillAmount = timeLeft / defaultTimeLeft;
+    }
 }
