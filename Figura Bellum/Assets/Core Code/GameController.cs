@@ -5,6 +5,8 @@ using UnityEngine;
 public class GameController {
     private GameController mInstance;
 
+
+
     private GameController()
     {
         //Should load the character save file in here.
