@@ -119,6 +119,9 @@ MonoBehaviour:
     type: 2}
   mShadowCloneAbility: {fileID: 1517223192088984, guid: df940bf01fa8d6b4a8cb486a93bd24f8,
     type: 2}
+  mFireNovaAbility: {fileID: 1916656278952652, guid: e482406cdbdbc8a4fb315f243359fb62,
+    type: 2}
+  isClone: 0
 --- !u!212 &212498016711501700
 SpriteRenderer:
   m_ObjectHideFlags: 1

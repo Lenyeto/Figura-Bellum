@@ -21,11 +21,12 @@ public class PlayerScript : MonoBehaviour
     private float mSpeed = 2.0f;
     public GameObject mFireBallAbility;
     public GameObject mShadowCloneAbility;
+    public GameObject mFireNovaAbility;
 
     public bool isClone = false;
 
     // Use this for initialization
-    private void Start()
+    private void Awake()
     {
         GameController.GetInstance().SetPlayerScript(this);
         mMainCamera = Camera.main;
@@ -35,24 +36,25 @@ public class PlayerScript : MonoBehaviour
         mFireBallAbility.GetComponent<Projectile>().mSpawnPosition = transform;
         mFireBallAbility.GetComponent<Projectile>().mSpawnDirection = mCrosshair.transform;
         mAbilities[0] = Instantiate(mFireBallAbility, gameObject.transform);
-        for (int i = 1; i < 4; ++i)
+        for (int i = 1; i < 3; ++i)
         {
             mAbilities[i] = new GameObject();
             mAbilities[i].transform.SetParent(gameObject.transform);
-            //mAbilities[i].AddComponent<AbilityCore>();
+            mAbilities[i].AddComponent<AbilityCore>();
         }
+        mAbilities[4] = Instantiate(mFireNovaAbility, gameObject.transform);
         mAbilities[5] = Instantiate(mShadowCloneAbility, gameObject.transform);
     }
 
     private void AbilityControl()
     {
 
-        if (Input.GetKeyDown(KeyCode.Mouse0)) { mAbilities[0].GetComponent<AbilityCore>().Cast(); };
-        if (Input.GetKeyDown(KeyCode.Mouse1)) { mAbilities[1].GetComponent<AbilityCore>().Cast(); };
-        if (Input.GetKeyDown(KeyCode.Mouse2)) { mAbilities[2].GetComponent<AbilityCore>().Cast(); };
-        if (Input.GetKeyDown(KeyCode.Mouse3)) { mAbilities[3].GetComponent<AbilityCore>().Cast(); };
-        if (Input.GetKeyDown(KeyCode.Mouse4)) { mAbilities[4].GetComponent<AbilityCore>().Cast(); };
-        if (Input.GetKeyDown(KeyCode.Space)) { mAbilities[5].GetComponent<AbilityCore>().Cast(); }
+        if (Input.GetKeyDown(KeyCode.Mouse0))   { mAbilities[0].GetComponent<AbilityCore>().Cast(); };
+        if (Input.GetKeyDown(KeyCode.Mouse1))   { mAbilities[1].GetComponent<AbilityCore>().Cast(); };
+        if (Input.GetKeyDown(KeyCode.Mouse2))   { mAbilities[2].GetComponent<AbilityCore>().Cast(); };
+        if (Input.GetKeyDown(KeyCode.Mouse3))   { mAbilities[3].GetComponent<AbilityCore>().Cast(); };
+        if (Input.GetKeyDown(KeyCode.E))        { mAbilities[4].GetComponent<AbilityCore>().Cast(); };
+        if (Input.GetKeyDown(KeyCode.Space))    { mAbilities[5].GetComponent<AbilityCore>().Cast(); }
     }
 
     // Update is called once per frame
