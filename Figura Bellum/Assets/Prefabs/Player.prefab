@@ -125,6 +125,8 @@ MonoBehaviour:
     type: 2}
   mPoisonAbility: {fileID: 1418834795966862, guid: 2d4039644673d444fb232d21b7ddce9e,
     type: 2}
+  mWhirlwindAbility: {fileID: 1927462674062210, guid: eb05e64bc7565ca41b8b800921d87837,
+    type: 2}
   isClone: 0
 --- !u!212 &212498016711501700
 SpriteRenderer:
