@@ -22,6 +22,8 @@ public class PlayerScript : MonoBehaviour
     public GameObject mFireBallAbility;
     public GameObject mShadowCloneAbility;
 
+    public bool isClone = false;
+
     // Use this for initialization
     private void Start()
     {
