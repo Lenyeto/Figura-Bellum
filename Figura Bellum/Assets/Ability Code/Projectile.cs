@@ -30,7 +30,7 @@ public class Projectile : AbilityCore {
             Debug.Log(cooldown);
             return;
         }
-        GameObject projectile = Instantiate(mProjectile, mSpawnPosition) as GameObject;
+        GameObject projectile = Instantiate(mProjectile, mSpawnPosition.position, Quaternion.identity) as GameObject;
 
         projectile.transform.LookAt(mSpawnDirection.position);
         projectile.GetComponent<Rigidbody>().AddForce(projectile.transform.forward * speed);
