@@ -32,13 +32,14 @@ public class PlayerScript : MonoBehaviour
         mAbilities = new GameObject[6];
         mFireBallAbility.GetComponent<Projectile>().mSpawnPosition = transform;
         mFireBallAbility.GetComponent<Projectile>().mSpawnDirection = mCrosshair.transform;
-        mAbilities[0] = Instantiate(mFireBallAbility);
+        mAbilities[0] = Instantiate(mFireBallAbility, gameObject.transform);
         for (int i = 1; i < 4; ++i)
         {
             mAbilities[i] = new GameObject();
+            mAbilities[i].transform.SetParent(gameObject.transform);
             //mAbilities[i].AddComponent<AbilityCore>();
         }
-        mAbilities[5] = Instantiate(mShadowCloneAbility);
+        mAbilities[5] = Instantiate(mShadowCloneAbility, gameObject.transform);
     }
 
     private void AbilityControl()

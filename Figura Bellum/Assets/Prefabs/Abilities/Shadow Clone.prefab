@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4827811100079962}
   - component: {fileID: 114585115714008718}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: Shadow Clone Ability
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
