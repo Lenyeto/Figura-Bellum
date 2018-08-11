@@ -19,6 +19,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4979762533603914}
+  - component: {fileID: 114265951021862302}
   m_Layer: 0
   m_Name: Whirl Wind
   m_TagString: Untagged
@@ -39,3 +40,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114265951021862302
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1927462674062210}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 417c0ba09a9137c47b7f9a985c8f9bc1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mIcon: {fileID: 21300000, guid: 54a6112f28c0049468d427985bbfd0c6, type: 3}
+  defaultCooldown: 30
+  cooldown: 0
+  mWhirlWind: {fileID: 178280, guid: 982d6dc9a579877478af73641bd15e36, type: 2}
