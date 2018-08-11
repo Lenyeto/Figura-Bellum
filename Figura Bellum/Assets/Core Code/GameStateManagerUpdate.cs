@@ -16,14 +16,12 @@ public class GameStateManagerUpdate : MonoBehaviour
             {
                 case GameState.RUNNING:
                     GameStateManager.Instance.SetNewGameState(GameState.PAUSED);
-                    Cursor.lockState = CursorLockMode.Locked;
-                    Cursor.visible = false;
+                    //Cursor.lockState = CursorLockMode.Locked;
                     break;
 
                 case GameState.PAUSED:
                     GameStateManager.Instance.SetNewGameState(GameState.RUNNING);
-                    Cursor.lockState = CursorLockMode.None;
-                    Cursor.visible = true;
+                    //Cursor.lockState = CursorLockMode.None;
                     break;
             }
         }

@@ -28,8 +28,6 @@ public class PlayerScript : MonoBehaviour
     {
         GameController.GetInstance().SetPlayerScript(this);
         mMainCamera = Camera.main;
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
         mAbilities = new GameObject[6];
         AbilityDatabase.GetInstance().GetAbility(0).GetComponent<Projectile>().mSpawnPosition = transform;
         AbilityDatabase.GetInstance().GetAbility(0).GetComponent<Projectile>().mSpawnDirection = mCrosshair.transform;
