@@ -121,6 +121,8 @@ MonoBehaviour:
     type: 2}
   mFireNovaAbility: {fileID: 1916656278952652, guid: e482406cdbdbc8a4fb315f243359fb62,
     type: 2}
+  mUltimateFireNova: {fileID: 1109481429513856, guid: c41c66ba201233647beb65d5a8c7cf8d,
+    type: 2}
   isClone: 0
 --- !u!212 &212498016711501700
 SpriteRenderer:

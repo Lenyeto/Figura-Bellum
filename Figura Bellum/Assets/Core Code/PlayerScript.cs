@@ -22,6 +22,7 @@ public class PlayerScript : MonoBehaviour
     public GameObject mFireBallAbility;
     public GameObject mShadowCloneAbility;
     public GameObject mFireNovaAbility;
+    public GameObject mUltimateFireNova;
 
     public bool isClone = false;
 
@@ -42,6 +43,7 @@ public class PlayerScript : MonoBehaviour
             mAbilities[i].transform.SetParent(gameObject.transform);
             mAbilities[i].AddComponent<AbilityCore>();
         }
+        mAbilities[3] = Instantiate(mUltimateFireNova, gameObject.transform);
         mAbilities[4] = Instantiate(mFireNovaAbility, gameObject.transform);
         mAbilities[5] = Instantiate(mShadowCloneAbility, gameObject.transform);
     }
@@ -49,11 +51,11 @@ public class PlayerScript : MonoBehaviour
     private void AbilityControl()
     {
 
-        if (Input.GetKeyDown(KeyCode.Mouse0))   { mAbilities[0].GetComponent<AbilityCore>().Cast(); };
-        if (Input.GetKeyDown(KeyCode.Mouse1))   { mAbilities[1].GetComponent<AbilityCore>().Cast(); };
-        if (Input.GetKeyDown(KeyCode.Mouse2))   { mAbilities[2].GetComponent<AbilityCore>().Cast(); };
-        if (Input.GetKeyDown(KeyCode.Mouse3))   { mAbilities[3].GetComponent<AbilityCore>().Cast(); };
-        if (Input.GetKeyDown(KeyCode.E))        { mAbilities[4].GetComponent<AbilityCore>().Cast(); };
+        if (Input.GetKeyDown(KeyCode.Mouse0))   { mAbilities[0].GetComponent<AbilityCore>().Cast(); }
+        if (Input.GetKeyDown(KeyCode.Mouse1))   { mAbilities[1].GetComponent<AbilityCore>().Cast(); }
+        if (Input.GetKeyDown(KeyCode.F))   { mAbilities[2].GetComponent<AbilityCore>().Cast(); }
+        if (Input.GetKeyDown(KeyCode.Q))   { mAbilities[3].GetComponent<AbilityCore>().Cast(); }
+        if (Input.GetKeyDown(KeyCode.E))        { mAbilities[4].GetComponent<AbilityCore>().Cast(); }
         if (Input.GetKeyDown(KeyCode.Space))    { mAbilities[5].GetComponent<AbilityCore>().Cast(); }
     }
 
