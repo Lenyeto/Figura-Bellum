@@ -54,4 +54,7 @@ MonoBehaviour:
   mAbilities:
   - {fileID: 1119288443915714, guid: 5bb1644ba7499f548bcff63a2458037b, type: 2}
   - {fileID: 1916656278952652, guid: e482406cdbdbc8a4fb315f243359fb62, type: 2}
+  - {fileID: 1418834795966862, guid: 2d4039644673d444fb232d21b7ddce9e, type: 2}
   - {fileID: 1517223192088984, guid: df940bf01fa8d6b4a8cb486a93bd24f8, type: 2}
+  - {fileID: 1109481429513856, guid: c41c66ba201233647beb65d5a8c7cf8d, type: 2}
+  - {fileID: 1927462674062210, guid: eb05e64bc7565ca41b8b800921d87837, type: 2}
