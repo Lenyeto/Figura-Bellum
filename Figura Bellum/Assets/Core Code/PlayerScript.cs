@@ -20,6 +20,7 @@ public class PlayerScript : MonoBehaviour
     //temp till we get stats and other systems in
     private float mSpeed = 2.0f;
     public GameObject mFireBallAbility;
+    public GameObject mShadowCloneAbility;
 
     // Use this for initialization
     private void Start()
@@ -28,15 +29,16 @@ public class PlayerScript : MonoBehaviour
         mMainCamera = Camera.main;
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
-        mAbilities = new GameObject[5];
+        mAbilities = new GameObject[6];
         mFireBallAbility.GetComponent<Projectile>().mSpawnPosition = transform;
         mFireBallAbility.GetComponent<Projectile>().mSpawnDirection = mCrosshair.transform;
         mAbilities[0] = Instantiate(mFireBallAbility);
-        for (int i = 1; i < 5; ++i)
+        for (int i = 1; i < 4; ++i)
         {
             mAbilities[i] = new GameObject();
-            mAbilities[i].AddComponent<AbilityCore>();
+            //mAbilities[i].AddComponent<AbilityCore>();
         }
+        mAbilities[5] = Instantiate(mShadowCloneAbility);
     }
 
     private void AbilityControl()
@@ -47,7 +49,7 @@ public class PlayerScript : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Mouse2)) { mAbilities[2].GetComponent<AbilityCore>().Cast(); };
         if (Input.GetKeyDown(KeyCode.Mouse3)) { mAbilities[3].GetComponent<AbilityCore>().Cast(); };
         if (Input.GetKeyDown(KeyCode.Mouse4)) { mAbilities[4].GetComponent<AbilityCore>().Cast(); };
-        //if (Input.GetKeyDown(KeyCode.Space)) { mAbilities[5].GetComponent<AbilityCore>().Cast(); }
+        if (Input.GetKeyDown(KeyCode.Space)) { mAbilities[5].GetComponent<AbilityCore>().Cast(); }
     }
 
     // Update is called once per frame
@@ -57,9 +59,6 @@ public class PlayerScript : MonoBehaviour
         {
             CursorControl();
             AbilityControl();
-            //vvv ---test stuff down here--- vvvv
-            if (Input.GetKeyDown(KeyCode.Space))
-                ShadowCloneJitsu();
         }
     }
 
@@ -100,18 +99,5 @@ public class PlayerScript : MonoBehaviour
 
         mCrosshair.transform.localPosition = cross;
 
-    }
-
-    private void ShadowCloneJitsu()
-    {
-        GameObject clone;
-        clone = Instantiate(gameObject, transform.position + new Vector3(0, 3), new Quaternion(0, 0, 0, 0), null);
-        Destroy(clone, 5);
-        clone = Instantiate(gameObject, transform.position + new Vector3(0, -3), new Quaternion(0, 0, 0, 0), null);
-        Destroy(clone, 5);
-        clone = Instantiate(gameObject, transform.position + new Vector3(3, 0), new Quaternion(0, 0, 0, 0), null);
-        Destroy(clone, 5);
-        clone = Instantiate(gameObject, transform.position + new Vector3(-3, 0), new Quaternion(0, 0, 0, 0), null);
-        Destroy(clone, 5);
     }
 }

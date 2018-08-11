@@ -51,6 +51,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8c0c12df367e0e498137e88e5dfb442, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mIcon: {fileID: 21300000, guid: 4c27e94307d0ddf489d780813851cbcf, type: 3}
+  defaultCooldown: 1
+  cooldown: 0
   mSpawnPosition: {fileID: 0}
   mSpawnDirection: {fileID: 0}
   currentProjectile: 0

@@ -11,8 +11,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f4c32f54e19af14d9753fb9d90c530e, type: 3}
   m_Name: Fireball
   m_EditorClassIdentifier: 
-  mIcon: {fileID: 0}
-  mName: 
-  mCooldown: 0
-  mAbilityScript: {fileID: 0}
+  mIcon: {fileID: 21300000, guid: 4c27e94307d0ddf489d780813851cbcf, type: 3}
+  mName: Fire Ball
+  mCooldown: 10
+  mAbilityScript: 
   mPrereq: {fileID: 0}
