@@ -2,16 +2,20 @@
 
 public enum GameState { MENU, RUNNING, PAUSED, CUTSCENE };
 
+
 public sealed class GameStateManager
 {
+
+
     private static readonly GameStateManager msInstance = new GameStateManager();
+    private static bool msDebugMode = false;
 
     // Explicit static constructor to tell C# compiler
     // not to mark type as beforefieldinit
 
-    private GameObject mGameManagerObject;
+    private static GameObject mGameManagerObject;
 
-    private GameState mCurrentGameState = GameState.RUNNING;
+    private static GameState mCurrentGameState = GameState.RUNNING;
 
     static GameStateManager()
     {
@@ -24,14 +28,15 @@ public sealed class GameStateManager
         mGameManagerObject.AddComponent<GameStateManagerUpdate>();
     }
 
-    public GameState GetCurrentGameState()
-    {
-        return mCurrentGameState;
-    }
-
     public void SetNewGameState(GameState state)
     {
         mCurrentGameState = state;
+    }
+
+    public void SetDebug(bool b)
+    {
+        msDebugMode = b;
+        
     }
 
     public static GameStateManager Instance
@@ -39,6 +44,22 @@ public sealed class GameStateManager
         get
         {
             return msInstance;
+        }
+    }
+
+    public static GameState CurrentGameState
+    {
+        get
+        {
+            return mCurrentGameState;
+        }
+    }
+
+    public static bool DebugMode
+    {
+        get
+        {
+            return msDebugMode;
         }
     }
 }

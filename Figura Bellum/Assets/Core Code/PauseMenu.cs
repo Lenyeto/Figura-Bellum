@@ -3,13 +3,14 @@
 public class PauseMenu : MonoBehaviour
 {
     public GameObject[] mMenuOptions;
+    public GameObject[] mMenuButtons;
     private GameState mPrevGameState;
 
     // Use this for initialization
     private void Start()
     {
         SetEnabled(false);
-        mPrevGameState = GameStateManager.Instance.GetCurrentGameState();
+        mPrevGameState = GameStateManager.CurrentGameState;
     }
 
     // Update is called once per frame
@@ -17,22 +18,21 @@ public class PauseMenu : MonoBehaviour
     {
         if (mPrevGameState != GameState.PAUSED)
         {
-            if (GameStateManager.Instance.GetCurrentGameState() == GameState.PAUSED)
+            if (GameStateManager.CurrentGameState == GameState.PAUSED)
             {
-                
                 SetActive(0);
             }
         }
         else
         {
-            if (GameStateManager.Instance.GetCurrentGameState() == GameState.RUNNING)
+            if (GameStateManager.CurrentGameState == GameState.RUNNING)
             {
 
                 SetEnabled(false);
             }
 
         }
-        mPrevGameState = GameStateManager.Instance.GetCurrentGameState();
+        mPrevGameState = GameStateManager.CurrentGameState;
     }
 
     private void SetEnabled(bool b = true)
@@ -40,7 +40,9 @@ public class PauseMenu : MonoBehaviour
         for (int i = 0; i < mMenuOptions.Length; ++i)
         {
             mMenuOptions[i].SetActive(b);
+            mMenuButtons[i].SetActive(b);
         }
+
     }
 
     public void SetActive(int option)
@@ -48,6 +50,7 @@ public class PauseMenu : MonoBehaviour
         for (int i = 0; i < mMenuOptions.Length; ++i)
         {
             mMenuOptions[i].SetActive(i == option ? true : false);
+            mMenuButtons[i].SetActive(i != option ? true : false);
         }
     }
 }

@@ -44,16 +44,16 @@ public class PlayerScript : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Mouse0))   { mAbilities[0].GetComponent<AbilityCore>().Cast(); }
         if (Input.GetKeyDown(KeyCode.Mouse1))   { mAbilities[1].GetComponent<AbilityCore>().Cast(); }
-        if (Input.GetKeyDown(KeyCode.F))   { mAbilities[2].GetComponent<AbilityCore>().Cast(); }
-        if (Input.GetKeyDown(KeyCode.Q))   { mAbilities[3].GetComponent<AbilityCore>().Cast(); }
-        if (Input.GetKeyDown(KeyCode.E))        { mAbilities[4].GetComponent<AbilityCore>().Cast(); }
+        if (Input.GetKeyDown(KeyCode.Q))   { mAbilities[2].GetComponent<AbilityCore>().Cast(); }
+        if (Input.GetKeyDown(KeyCode.E))   { mAbilities[3].GetComponent<AbilityCore>().Cast(); }
+        if (Input.GetKeyDown(KeyCode.F))        { mAbilities[4].GetComponent<AbilityCore>().Cast(); }
         if (Input.GetKeyDown(KeyCode.Space))    { mAbilities[5].GetComponent<AbilityCore>().Cast(); }
     }
 
     // Update is called once per frame
     private void Update()
     {
-        if (GameStateManager.Instance.GetCurrentGameState() == GameState.RUNNING)
+        if (GameStateManager.CurrentGameState == GameState.RUNNING)
         {
             CursorControl();
             AbilityControl();
