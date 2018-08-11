@@ -23,6 +23,7 @@ public class PlayerScript : MonoBehaviour
     public GameObject mShadowCloneAbility;
     public GameObject mFireNovaAbility;
     public GameObject mUltimateFireNova;
+    public GameObject mPoisonAbility;
 
     public bool isClone = false;
 
@@ -37,12 +38,13 @@ public class PlayerScript : MonoBehaviour
         mFireBallAbility.GetComponent<Projectile>().mSpawnPosition = transform;
         mFireBallAbility.GetComponent<Projectile>().mSpawnDirection = mCrosshair.transform;
         mAbilities[0] = Instantiate(mFireBallAbility, gameObject.transform);
-        for (int i = 1; i < 3; ++i)
+        for (int i = 1; i < 1; ++i)
         {
             mAbilities[i] = new GameObject();
             mAbilities[i].transform.SetParent(gameObject.transform);
             mAbilities[i].AddComponent<AbilityCore>();
         }
+        mAbilities[2] = Instantiate(mPoisonAbility, gameObject.transform);
         mAbilities[3] = Instantiate(mUltimateFireNova, gameObject.transform);
         mAbilities[4] = Instantiate(mFireNovaAbility, gameObject.transform);
         mAbilities[5] = Instantiate(mShadowCloneAbility, gameObject.transform);

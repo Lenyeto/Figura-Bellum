@@ -123,6 +123,8 @@ MonoBehaviour:
     type: 2}
   mUltimateFireNova: {fileID: 1109481429513856, guid: c41c66ba201233647beb65d5a8c7cf8d,
     type: 2}
+  mPoisonAbility: {fileID: 1418834795966862, guid: 2d4039644673d444fb232d21b7ddce9e,
+    type: 2}
   isClone: 0
 --- !u!212 &212498016711501700
 SpriteRenderer:
