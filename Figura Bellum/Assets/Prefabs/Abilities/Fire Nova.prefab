@@ -54,4 +54,4 @@ MonoBehaviour:
   mIcon: {fileID: 21300000, guid: 0dda7414a68c12b4e93e023289a50db4, type: 3}
   defaultCooldown: 10
   cooldown: 0
-  mFireNovaPrefab: {fileID: 100534, guid: 37703eac1d8575143b99ee99cf5ab0fb, type: 2}
+  mFireNovaPrefab: {fileID: 100534, guid: 06930d5bef25c9c4285e0fe03dd3aaa0, type: 2}

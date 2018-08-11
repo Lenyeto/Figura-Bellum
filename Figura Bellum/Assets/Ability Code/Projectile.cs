@@ -27,7 +27,6 @@ public class Projectile : AbilityCore {
     {
         if (cooldown > 0)
         {
-            Debug.Log(cooldown);
             return;
         }
         GameObject projectile = Instantiate(mProjectile, mSpawnPosition.position, Quaternion.identity) as GameObject;

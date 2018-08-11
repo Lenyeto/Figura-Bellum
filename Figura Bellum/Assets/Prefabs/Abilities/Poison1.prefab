@@ -54,4 +54,4 @@ MonoBehaviour:
   mIcon: {fileID: 21300000, guid: 59fd43d764744ec4aa0dd4800200c06f, type: 3}
   defaultCooldown: 60
   cooldown: 0
-  mPoison: {fileID: 147900, guid: e1b1f0ede5a44aa4f964e6cabe2a3f26, type: 2}
+  mPoison: {fileID: 147900, guid: ee1fdcb3bc95dce4094febbe536345e0, type: 2}

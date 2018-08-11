@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class BadGuyScript : MonoBehaviour
 {
+    public float mHealth = 20;
+
+    public float mDefaultInvulnerability = 1;
+    public float mInvulnerability = 0;
+
     float AnimateProgress = 0;
     bool Right = true;
 
@@ -17,9 +22,20 @@ public class BadGuyScript : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
     {
-        Animate();
+        if (GameStateManager.CurrentGameState == GameState.RUNNING)
+        {
+            Animate();
 
-        gameObject.transform.Translate((GameController.GetInstance().GetPlayerScript().transform.position - transform.position).normalized * Time.deltaTime);
+            gameObject.transform.Translate((GameController.GetInstance().GetPlayerScript().transform.position - transform.position).normalized * Time.deltaTime);
+
+            if (mHealth <= 0)
+            {
+                Destroy(this.gameObject);
+            }
+
+            if (mInvulnerability > 0)
+                mInvulnerability -= Time.deltaTime;
+        }
 	}
 
     void Animate()
@@ -36,5 +52,16 @@ public class BadGuyScript : MonoBehaviour
 
         gameObject.transform.Rotate(Vector3.forward, Right?-1:1);
         //gameObject.transform.Rotate(new Vector3(0, 0, 10));
+    }
+
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        Debug.Log("HIT OBJECT");
+        Debug.Log(collision.gameObject.tag);
+        if (collision.gameObject.tag == "Hero Damage" && mInvulnerability <= 0)
+        {
+            mHealth -= collision.gameObject.GetComponent<HazardScript>().getDamage();
+            mInvulnerability = mDefaultInvulnerability;
+        }
     }
 }
