@@ -1511,7 +1511,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eeefd1e0525cb7344b8ef677826e67cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mAbilities: []
+  mAbilities:
+  - {fileID: 1119288443915714, guid: 5bb1644ba7499f548bcff63a2458037b, type: 2}
+  - {fileID: 1916656278952652, guid: e482406cdbdbc8a4fb315f243359fb62, type: 2}
+  - {fileID: 1517223192088984, guid: df940bf01fa8d6b4a8cb486a93bd24f8, type: 2}
 --- !u!1 &2019078152
 GameObject:
   m_ObjectHideFlags: 0

@@ -8,11 +8,10 @@ public class GameController
 
     private PlayerScript mPlayerScript;
 
-    public readonly GameObject mAbilityDatabse;
-
     private GameController()
     {
         //Should load the character save file in here.
+       
     }
 
     public static GameController GetInstance()
