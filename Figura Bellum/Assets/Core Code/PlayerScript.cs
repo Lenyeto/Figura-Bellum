@@ -19,12 +19,7 @@ public class PlayerScript : MonoBehaviour
 
     //temp till we get stats and other systems in
     private float mSpeed = 2.0f;
-    public GameObject mFireBallAbility;
-    public GameObject mShadowCloneAbility;
-    public GameObject mFireNovaAbility;
-    public GameObject mUltimateFireNova;
-    public GameObject mPoisonAbility;
-    public GameObject mWhirlwindAbility;
+    
 
     public bool isClone = false;
 
@@ -36,14 +31,14 @@ public class PlayerScript : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
         mAbilities = new GameObject[6];
-        mFireBallAbility.GetComponent<Projectile>().mSpawnPosition = transform;
-        mFireBallAbility.GetComponent<Projectile>().mSpawnDirection = mCrosshair.transform;
-        mAbilities[0] = Instantiate(mFireBallAbility, gameObject.transform);
-        mAbilities[1] = Instantiate(mWhirlwindAbility, gameObject.transform);
-        mAbilities[2] = Instantiate(mPoisonAbility, gameObject.transform);
-        mAbilities[3] = Instantiate(mUltimateFireNova, gameObject.transform);
-        mAbilities[4] = Instantiate(mFireNovaAbility, gameObject.transform);
-        mAbilities[5] = Instantiate(mShadowCloneAbility, gameObject.transform);
+        AbilityDatabase.GetInstance().GetAbility(0).GetComponent<Projectile>().mSpawnPosition = transform;
+        AbilityDatabase.GetInstance().GetAbility(0).GetComponent<Projectile>().mSpawnDirection = mCrosshair.transform;
+        mAbilities[0] = Instantiate(AbilityDatabase.GetInstance().GetAbility(0), gameObject.transform);
+        mAbilities[1] = Instantiate(AbilityDatabase.GetInstance().GetAbility(1), gameObject.transform);
+        mAbilities[2] = Instantiate(AbilityDatabase.GetInstance().GetAbility(2), gameObject.transform);
+        mAbilities[3] = Instantiate(AbilityDatabase.GetInstance().GetAbility(3), gameObject.transform);
+        mAbilities[4] = Instantiate(AbilityDatabase.GetInstance().GetAbility(4), gameObject.transform);
+        mAbilities[5] = Instantiate(AbilityDatabase.GetInstance().GetAbility(5), gameObject.transform);
     }
 
     private void AbilityControl()

@@ -3,7 +3,7 @@
 public class GameStateManagerUpdate : MonoBehaviour
 {
     // Use this for initialization
-    private void Start()
+    private void Awake()
     {
     }
 

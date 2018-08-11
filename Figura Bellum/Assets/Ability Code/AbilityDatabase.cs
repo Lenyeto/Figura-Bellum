@@ -7,21 +7,15 @@ public class AbilityDatabase : MonoBehaviour {
 
     private static AbilityDatabase mInstance;
 
-    private PlayerScript mPlayerScript;
-
     public readonly GameObject mAbilityDatabse;
 
-    private AbilityDatabase()
+    private void Awake()
     {
-        
+        mInstance = this;
     }
 
     public static AbilityDatabase GetInstance()
     {
-        if (mInstance == null)
-        {
-            mInstance = new AbilityDatabase();
-        }
         return mInstance;
     }
 
