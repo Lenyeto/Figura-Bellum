@@ -20,6 +20,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4166169018265732}
   - component: {fileID: 114748933016128066}
+  - component: {fileID: 50703103062218188}
+  - component: {fileID: 61999518448540118}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -100,6 +102,51 @@ Transform:
   m_Father: {fileID: 4166169018265732}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!50 &50703103062218188
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1470261456072298}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 7
+--- !u!61 &61999518448540118
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1470261456072298}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.8, y: 0.8}
+  m_EdgeRadius: 0
 --- !u!114 &114748933016128066
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -113,20 +160,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mCrosshair: {fileID: 1833015827047584}
   mPlayerModel: {fileID: 1896218402561318}
-  mMaxDelta: 2
+  mMaxDelta: 4.03
   mAbilities: []
-  mFireBallAbility: {fileID: 1119288443915714, guid: 5bb1644ba7499f548bcff63a2458037b,
-    type: 2}
-  mShadowCloneAbility: {fileID: 1517223192088984, guid: df940bf01fa8d6b4a8cb486a93bd24f8,
-    type: 2}
-  mFireNovaAbility: {fileID: 1916656278952652, guid: e482406cdbdbc8a4fb315f243359fb62,
-    type: 2}
-  mUltimateFireNova: {fileID: 1109481429513856, guid: c41c66ba201233647beb65d5a8c7cf8d,
-    type: 2}
-  mPoisonAbility: {fileID: 1418834795966862, guid: 2d4039644673d444fb232d21b7ddce9e,
-    type: 2}
-  mWhirlwindAbility: {fileID: 1927462674062210, guid: eb05e64bc7565ca41b8b800921d87837,
-    type: 2}
   isClone: 0
 --- !u!212 &212498016711501700
 SpriteRenderer:
