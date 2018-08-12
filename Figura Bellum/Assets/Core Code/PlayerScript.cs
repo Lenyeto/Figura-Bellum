@@ -9,6 +9,8 @@ public class PlayerScript : MonoBehaviour
 
     public GameObject mPlayerModel;
 
+    public bool mAutoCast = true;
+
     //for crosshair
     [SerializeField]
     [Range(2,6)]
@@ -41,13 +43,24 @@ public class PlayerScript : MonoBehaviour
 
     private void AbilityControl()
     {
-
-        if (Input.GetKeyDown(KeyCode.Mouse0))   { mAbilities[0].GetComponent<AbilityCore>().Cast(); }
-        if (Input.GetKeyDown(KeyCode.Mouse1))   { mAbilities[1].GetComponent<AbilityCore>().Cast(); }
-        if (Input.GetKeyDown(KeyCode.Q))   { mAbilities[2].GetComponent<AbilityCore>().Cast(); }
-        if (Input.GetKeyDown(KeyCode.E))   { mAbilities[3].GetComponent<AbilityCore>().Cast(); }
-        if (Input.GetKeyDown(KeyCode.F))        { mAbilities[4].GetComponent<AbilityCore>().Cast(); }
-        if (Input.GetKeyDown(KeyCode.Space))    { mAbilities[5].GetComponent<AbilityCore>().Cast(); }
+        if (mAutoCast)
+        {
+            if (Input.GetKey(KeyCode.Mouse0)) { mAbilities[0].GetComponent<AbilityCore>().Cast(); }
+            if (Input.GetKey(KeyCode.Mouse1)) { mAbilities[1].GetComponent<AbilityCore>().Cast(); }
+            if (Input.GetKey(KeyCode.Q)) { mAbilities[2].GetComponent<AbilityCore>().Cast(); }
+            if (Input.GetKey(KeyCode.E)) { mAbilities[3].GetComponent<AbilityCore>().Cast(); }
+            if (Input.GetKey(KeyCode.F)) { mAbilities[4].GetComponent<AbilityCore>().Cast(); }
+            if (Input.GetKey(KeyCode.Space)) { mAbilities[5].GetComponent<AbilityCore>().Cast(); }
+        }
+        else
+        {
+            if (Input.GetKeyDown(KeyCode.Mouse0))   { mAbilities[0].GetComponent<AbilityCore>().Cast(); }
+            if (Input.GetKeyDown(KeyCode.Mouse1))   { mAbilities[1].GetComponent<AbilityCore>().Cast(); }
+            if (Input.GetKeyDown(KeyCode.Q))        { mAbilities[2].GetComponent<AbilityCore>().Cast(); }
+            if (Input.GetKeyDown(KeyCode.E))        { mAbilities[3].GetComponent<AbilityCore>().Cast(); }
+            if (Input.GetKeyDown(KeyCode.F))        { mAbilities[4].GetComponent<AbilityCore>().Cast(); }
+            if (Input.GetKeyDown(KeyCode.Space))    { mAbilities[5].GetComponent<AbilityCore>().Cast(); }
+        }
     }
 
     // Update is called once per frame
