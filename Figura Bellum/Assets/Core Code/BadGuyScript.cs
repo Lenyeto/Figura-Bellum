@@ -26,8 +26,11 @@ public class BadGuyScript : MonoBehaviour
         {
             Animate();
 
-            gameObject.transform.Translate((GameController.GetInstance().GetPlayerScript().transform.position - transform.position).normalized * Time.deltaTime);
+            //gameObject.transform.Translate((GameController.GetInstance().GetPlayerScript().transform.position - transform.position).normalized * Time.deltaTime);
 
+            Rigidbody2D rigid = gameObject.GetComponent<Rigidbody2D>();
+            gameObject.GetComponent<Rigidbody2D>().AddForce((GameController.PlayerScript.transform.position - transform.position).normalized);
+            
             if (mHealth <= 0)
             {
                 Destroy(this.gameObject);
@@ -56,8 +59,6 @@ public class BadGuyScript : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("HIT OBJECT");
-        Debug.Log(collision.gameObject.tag);
         if (collision.gameObject.tag == "Hero Damage" && mInvulnerability <= 0)
         {
             float damage = collision.gameObject.GetComponent<HazardScript>().getDamage();

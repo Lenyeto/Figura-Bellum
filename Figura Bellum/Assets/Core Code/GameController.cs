@@ -11,8 +11,10 @@ public class GameController
     private GameController()
     {
         //Should load the character save file in here.
-       
+
     }
+
+    public static PlayerScript PlayerScript => mInstance.mPlayerScript;
 
     public static GameController GetInstance()
     {
