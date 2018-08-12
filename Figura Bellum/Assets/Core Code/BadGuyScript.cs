@@ -60,8 +60,10 @@ public class BadGuyScript : MonoBehaviour
         Debug.Log(collision.gameObject.tag);
         if (collision.gameObject.tag == "Hero Damage" && mInvulnerability <= 0)
         {
-            mHealth -= collision.gameObject.GetComponent<HazardScript>().getDamage();
+            float damage = collision.gameObject.GetComponent<HazardScript>().getDamage();
+            mHealth -= damage;
             mInvulnerability = mDefaultInvulnerability;
+            gameObject.GetComponent<NumberThrow>().ThrowNumber((int)damage);
         }
     }
 }

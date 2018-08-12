@@ -54,6 +54,7 @@ GameObject:
   - component: {fileID: 58122153197467532}
   - component: {fileID: 114742794426904450}
   - component: {fileID: 50716340823399812}
+  - component: {fileID: 114187809782173842}
   m_Layer: 0
   m_Name: BadGuy
   m_TagString: Untagged
@@ -84,7 +85,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1328684666326624}
   m_LocalRotation: {x: -0, y: -0, z: -0.0627381, w: 0.99803007}
-  m_LocalPosition: {x: 1.32, y: 0.36, z: -3.64}
+  m_LocalPosition: {x: 1.32, y: 0.36, z: -0.13}
   m_LocalScale: {x: -0.15, y: 0.14999996, z: 0.14999999}
   m_Children: []
   m_Father: {fileID: 4064091207046056}
@@ -126,7 +127,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1750138124033884}
   m_LocalRotation: {x: -0, y: -0, z: -0.0627381, w: 0.99803007}
-  m_LocalPosition: {x: -1.19, y: 0.57, z: -3.64}
+  m_LocalPosition: {x: -1.19, y: 0.57, z: -0.12999988}
   m_LocalScale: {x: 0.15, y: 0.15, z: 0.15}
   m_Children: []
   m_Father: {fileID: 4064091207046056}
@@ -167,6 +168,19 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.77
+--- !u!114 &114187809782173842
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1688997754571940}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 400fe915a6c8fa544a971eaefdd75cb0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  NumberHolderPrefab: {fileID: 1644124407976492, guid: 829e01c59af204d4083eb65b305778a7,
+    type: 2}
 --- !u!114 &114742794426904450
 MonoBehaviour:
   m_ObjectHideFlags: 1
