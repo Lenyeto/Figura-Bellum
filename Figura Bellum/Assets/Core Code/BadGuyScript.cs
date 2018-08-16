@@ -12,6 +12,7 @@ public class BadGuyScript : MonoBehaviour
     float AnimateProgress = 0;
     bool Right = true;
 
+    int mXPValue = 5;
 
 	// Use this for initialization
 	void Start ()
@@ -34,6 +35,7 @@ public class BadGuyScript : MonoBehaviour
             if (mHealth <= 0)
             {
                 Destroy(this.gameObject);
+                GameController.GiveXP(mXPValue);
             }
 
             if (mInvulnerability > 0)

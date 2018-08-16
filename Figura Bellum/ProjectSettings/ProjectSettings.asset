@@ -616,7 +616,7 @@ PlayerSettings:
   cloudServicesEnabled:
     UNet: 1
   facebookSdkVersion: 7.9.4
-  apiCompatibilityLevel: 2
+  apiCompatibilityLevel: 3
   cloudProjectId: 6ea6aae9-1d7d-43f0-91f3-4d37d6a0f002
   projectName: Figura Bellum
   organizationId: lenyeto

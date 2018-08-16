@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerScript : MonoBehaviour
@@ -10,6 +11,14 @@ public class PlayerScript : MonoBehaviour
     public GameObject mPlayerModel;
 
     public bool mAutoCast = true;
+
+    public int mXP = 0;
+
+    public int mXPNeeded = 20;
+
+    public int mLevel = 0;
+
+    public int mSkillPoints = 0;
 
     //for crosshair
     [SerializeField]
@@ -39,6 +48,20 @@ public class PlayerScript : MonoBehaviour
         mAbilities[3] = Instantiate(AbilityDatabase.GetInstance().GetAbility(3), gameObject.transform);
         mAbilities[4] = Instantiate(AbilityDatabase.GetInstance().GetAbility(4), gameObject.transform);
         mAbilities[5] = Instantiate(AbilityDatabase.GetInstance().GetAbility(5), gameObject.transform);
+    }
+
+    internal void GiveXP(int XPValue)
+    {
+        mXP += XPValue;
+
+        if (mXP >= mXPNeeded)
+        {
+            mLevel += 1;
+            mXP = mXP - mXPNeeded;
+            mSkillPoints += 1;
+        }
+        
+        GameController.UpdateLevelUI(mLevel, (float)mXP / mXPNeeded);
     }
 
     private void AbilityControl()
