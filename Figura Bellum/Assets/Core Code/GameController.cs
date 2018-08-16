@@ -23,7 +23,7 @@ public class GameController
     }
 
     public static PlayerScript PlayerScript => GetInstance().mPlayerScript;
-
+    
     public static GameController GetInstance()
     {
         if (mInstance == null)
